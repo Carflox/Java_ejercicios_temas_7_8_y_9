@@ -1,0 +1,7 @@
+// Para implementar la función que devuelve una cadena al revés, 
+// podemos utilizar el método reverse() de la clase StringBuilder. 
+// Aquí está el código:
+public static String reverse(String texto) {
+    StringBuilder builder = new StringBuilder(texto);
+    return builder.reverse().toString();
+}

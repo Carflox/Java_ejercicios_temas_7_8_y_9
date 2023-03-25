@@ -1,0 +1,6 @@
+// Para crear un array unidimensional de Strings y recorrerlo
+String[] palabras = {"Hola", "Mundo", "en", "Java"};
+
+for (String palabra : palabras) {
+    System.out.println(palabra);
+}

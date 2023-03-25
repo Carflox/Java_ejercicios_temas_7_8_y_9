@@ -1,0 +1,17 @@
+// Para crear un ArrayList de tipo String, copiarlo en una LinkedList 
+// y recorrer ambas
+ArrayList<String> lista1 = new ArrayList<>();
+lista1.add("Uno");
+lista1.add("Dos");
+lista1.add("Tres");
+lista1.add("Cuatro");
+
+LinkedList<String> lista2 = new LinkedList<>(lista1);
+
+for (String elemento : lista1) {
+    System.out.println(elemento);
+}
+
+for (String elemento : lista2) {
+    System.out.println(elemento);
+}

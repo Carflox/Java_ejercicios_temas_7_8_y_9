@@ -1,0 +1,14 @@
+// Para crear la función DividePorCero y capturar una excepción
+public static void dividePorCero() throws ArithmeticException {
+    int resultado = 5 / 0;
+}
+
+public static void main(String[] args) {
+    try {
+        dividePorCero();
+    } catch (ArithmeticException e) {
+        System.out.println("Esto no puede hacerse");
+    } finally {
+        System.out.println("Demo de código");
+    }
+}

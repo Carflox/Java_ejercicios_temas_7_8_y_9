@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+
+public class ProgramaEjemplo {
+    public static void main(String[] args) {
+        // Creamos un objeto Scanner para leer datos desde la entrada estándar (System.in)
+        Scanner scanner = new Scanner(System.in);
+
+        // Creamos un HashMap para almacenar nombres de estudiantes y sus calificaciones
+        Map<String, Integer> calificaciones = new HashMap<>();
+
+        // Creamos un ArrayList para almacenar los nombres de los estudiantes que han pasado
+        List<String> estudiantesAprobados = new ArrayList<>();
+
+        // Pedimos al usuario que introduzca el número de estudiantes
+        System.out.print("Introduzca el número de estudiantes: ");
+        int numEstudiantes = scanner.nextInt();
+
+        // Leemos los nombres y calificaciones de cada estudiante
+        for (int i = 1; i <= numEstudiantes; i++) {
+            System.out.printf("Introduzca el nombre del estudiante #%d: ", i);
+            String nombreEstudiante = scanner.next();
+
+            System.out.printf("Introduzca la calificación del estudiante #%d: ", i);
+            int calificacion = scanner.nextInt();
+
+            // Si la calificación es negativa o mayor que 100, lanzamos una excepción
+            if (calificacion < 0 || calificacion > 100) {
+                throw new IllegalArgumentException("La calificación debe estar entre 0 y 100.");
+            }
+
+            // Añadimos el nombre y la calificación del estudiante al HashMap
+            calificaciones.put(nombreEstudiante, calificacion);
+
+            // Si la calificación del estudiante es mayor o igual a 60, lo añadimos al ArrayList de estudiantes aprobados
+            if (calificacion >= 60) {
+                estudiantesAprobados.add(nombreEstudiante);
+            }
+        }
+
+        // Creamos un objeto PrintStream para imprimir los resultados en la salida estándar (System.out)
+        PrintStream printStream = new PrintStream(System.out);
+
+        // Imprimimos las calificaciones de todos los estudiantes
+        printStream.println("\nCalificaciones de los estudiantes:");
+        for (String nombreEstudiante : calificaciones.keySet()) {
+            int calificacion = calificaciones.get(nombreEstudiante);
+            printStream.printf("%s: %d\n", nombreEstudiante, calificacion);
+        }
+
+        // Imprimimos los nombres de los estudiantes que han pasado
+        printStream.println("\nEstudiantes aprobados:");
+        for (String nombreEstudiante : estudiantesAprobados) {
+            printStream.println(nombreEstudiante);
+        }
+    }
+}
